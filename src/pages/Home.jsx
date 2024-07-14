@@ -1,12 +1,6 @@
 import { Box } from "@mui/material";
-import { useAuth } from "../context/AuthContext";
-import { useEffect } from "react";
-const Home = () => {
-  const auth = useAuth();
-  useEffect(() => {
-    window.location.reload();
-  }, [auth.user]);
 
+const Home = () => {
   return (
     <Box width={"100%"} height={"60vh"} mt={"3rem"}>
       <Box

@@ -2,9 +2,12 @@ import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./shared/Logo";
 import { useAuth } from "../context/AuthContext";
 import NavLink from "./shared/NavLink";
-
+import { useEffect } from "react";
 const Header = () => {
   const auth = useAuth();
+  useEffect(() => {
+    window.location.reload();
+  }, [auth.logout]);
 
   return (
     <AppBar
