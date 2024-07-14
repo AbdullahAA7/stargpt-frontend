@@ -29,7 +29,7 @@ const Header = () => {
                 textColor="white"
                 onClick={auth?.logout}
               >
-                <Link onClick={window.location.reload()} />
+                <Link onClick={window.location.reload} />
               </NavLink>
             </>
           ) : (
