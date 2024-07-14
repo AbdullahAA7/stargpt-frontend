@@ -2,9 +2,12 @@ import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./shared/Logo";
 import { useAuth } from "../context/AuthContext";
 import NavLink from "./shared/NavLink";
+import { useState } from "react";
 
 const Header = () => {
   const auth = useAuth();
+  const [newAuth, setNewAuth] = useState(null);
+  setNewAuth(auth);
   return (
     <AppBar
       sx={{ bgcolor: "transparent", position: "static", boxShadow: "none" }}
@@ -12,7 +15,7 @@ const Header = () => {
       <Toolbar sx={{ display: "flex" }}>
         <Logo />
         <div>
-          {auth?.isLoggedIn && auth.user ? (
+          {newAuth?.isLoggedIn && newAuth?.user ? (
             <>
               <NavLink
                 bg="#00fffc"
