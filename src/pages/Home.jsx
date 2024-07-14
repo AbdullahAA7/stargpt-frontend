@@ -59,7 +59,7 @@ const Home = () => {
             Important Message:
           </span>{" "}
           It is beta version means there are chances that you get errors for
-          example delay some seconds in resopnse by the chat bot. But don't
+          example delay some seconds in resopnse by the chat bot. But dont
           worry i will upgrade it slowly but continouslly .
         </p>
       </Box>

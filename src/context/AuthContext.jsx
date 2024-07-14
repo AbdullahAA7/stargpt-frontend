@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     await logoutUser();
     setIsLoggedIn(false);
     setUser(null);
-    window.location.reload();
+    window.location.reload(true);
   };
   const value = {
     user,
