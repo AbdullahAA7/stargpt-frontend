@@ -37,10 +37,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const logout = async () => {
-    await logoutUser();
+    // await logoutUser();
+    // setIsLoggedIn(false);
+    // setUser(null);
     window.location.reload();
-    setIsLoggedIn(false);
-    setUser(null);
   };
   const value = {
     user,
