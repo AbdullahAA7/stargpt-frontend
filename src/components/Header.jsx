@@ -27,7 +27,7 @@ const Header = () => {
                 to="/"
                 text="Logout"
                 textColor="white"
-                onClick={window.location.reload() && auth.logout}
+                onClick={auth.logout && window.location.reload()}
               />
             </>
           ) : (
