@@ -22,19 +22,19 @@ const Header = () => {
                 textColor="black"
               />
 
-              <NavLink
-                bg="#51538f"
-                to="/"
-                text="Logout"
-                textColor="white"
-                onClick={auth?.logout}
+              <Link
+                onClick={() => {
+                  window.location.reload();
+                }}
               >
-                <Link
-                  onClick={() => {
-                    window.location.reload();
-                  }}
+                <NavLink
+                  bg="#51538f"
+                  to="/"
+                  text="Logout"
+                  textColor="white"
+                  onClick={auth?.logout}
                 />
-              </NavLink>
+              </Link>
             </>
           ) : (
             <>
