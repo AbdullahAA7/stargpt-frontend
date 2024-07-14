@@ -5,7 +5,7 @@ const Home = () => {
   const auth = useAuth();
   useEffect(() => {
     window.location.reload();
-  }, [auth.logout]);
+  }, [auth.user]);
 
   return (
     <Box width={"100%"} height={"60vh"} mt={"3rem"}>
