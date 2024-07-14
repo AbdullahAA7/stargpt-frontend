@@ -38,9 +38,9 @@ export const AuthProvider = ({ children }) => {
   };
   const logout = async () => {
     await logoutUser();
+    window.location.reload();
     setIsLoggedIn(false);
     setUser(null);
-    window.location.replace(window.location.href);
   };
   const value = {
     user,
