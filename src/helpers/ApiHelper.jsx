@@ -1,7 +1,13 @@
 import axios from "axios";
 
 export const userLogin = async (email, password) => {
-  const res = await axios.post("/user/login", { email, password });
+  const res = await axios.post(
+    "/user/login",
+    { email, password },
+    {
+      withCredentials: true,
+    }
+  );
   if (res.status !== 200) {
     throw new Error("Problem in Login");
   }
@@ -10,7 +16,13 @@ export const userLogin = async (email, password) => {
 };
 
 export const userSignup = async (name, email, password) => {
-  const res = await axios.post("/user/signup", { name, email, password });
+  const res = await axios.post(
+    "/user/signup",
+    { name, email, password },
+    {
+      withCredentials: true,
+    }
+  );
   console.log(res);
   if (res.status !== 201) {
     throw new Error("Problem in Signup");
@@ -28,7 +40,13 @@ export const checkAuthStatus = async () => {
   return data;
 };
 export const sendChatRequest = async (message) => {
-  const res = await axios.post("/chat/new", { message });
+  const res = await axios.post(
+    "/chat/new",
+    { message },
+    {
+      withCredentials: true,
+    }
+  );
   if (res.status !== 200) {
     throw new Error("Unable to send Chat");
   }
