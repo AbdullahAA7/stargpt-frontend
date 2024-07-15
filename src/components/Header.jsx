@@ -2,7 +2,6 @@ import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./shared/Logo";
 import { useAuth } from "../context/AuthContext";
 import NavLink from "./shared/NavLink";
-import { Link } from "react-router-dom";
 const Header = () => {
   const auth = useAuth();
 
@@ -22,19 +21,13 @@ const Header = () => {
                 textColor="black"
               />
 
-              <Link
-                onClick={() => {
-                  window.location.reload();
-                }}
-              >
-                <NavLink
-                  bg="#51538f"
-                  to="/"
-                  text="Logout"
-                  textColor="white"
-                  onClick={auth?.logout}
-                />
-              </Link>
+              <NavLink
+                bg="#51538f"
+                to="/"
+                text="Logout"
+                textColor="white"
+                onClick={auth?.logout}
+              />
             </>
           ) : (
             <>
