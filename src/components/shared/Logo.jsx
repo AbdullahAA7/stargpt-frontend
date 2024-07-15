@@ -24,11 +24,13 @@ const Logo = () => {
         sx={{
           display: { md: "block", sm: "none", xs: "none" },
           mr: "auto",
-          fontWeight: "800",
+          fontWeight: "500",
+          fontSize: "23px",
+          color: "rgba(216, 216, 216,0.9)",
           textShadow: "2px 2px 20px #000",
         }}
       >
-        <span style={{ fontSize: "20px" }}>STAR</span>-GPT
+        StarGPT
       </Typography>
     </div>
   );
