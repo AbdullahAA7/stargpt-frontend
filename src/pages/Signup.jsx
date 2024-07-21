@@ -1,11 +1,11 @@
 import { Box, Button, Typography } from "@mui/material";
 import { IoIosLogIn } from "react-icons/io";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import Input from "../components/shared/Input";
 import toast from "react-hot-toast";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-
+import "../styles/Signup.css";
 const Signup = () => {
   const navigate = useNavigate();
   const auth = useAuth();
@@ -29,78 +29,35 @@ const Signup = () => {
     }
   }, [auth]);
   return (
-    <Box width={"100%"} height={"100%"} display={"flex"} flex={1}>
-      <Box style={{ userSelect: "none" }}>
-        <Box
-          padding={{ lg: "1.5rem 10rem 1rem 0", md: "1.5rem 0 1rem 0" }}
-          display={{ md: "flex", sm: "none", xs: "none" }}
-        >
-          <img
-            src="airobot.png"
-            alt="AI Robot"
-            draggable="false"
-            style={{
-              width: "400px",
-              userSelect: "none",
-            }}
-          />
+    <Box className="Signup">
+      <Box className="robot-box">
+        <Box className="robot-img">
+          <img src="airobot.png" alt="AI Robot" draggable="false" />
         </Box>
       </Box>
-      <Box
-        display={"flex"}
-        flex={{ xs: 1, md: 1 }}
-        justifyContent={"center"}
-        alignItems={"center"}
-        ml={"auto"}
-        mb={2}
-        mt={{ md: 6, sm: 4, xs: 6 }}
-      >
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            margin: "auto",
-            padding: "5rem 2rem 4rem 2rem",
-            boxShadow: "10px 10px 20px #000",
-            borderRadius: "10px",
-            border: "none",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <Typography
-              variant="h4"
-              textAlign="center"
-              padding={1}
-              fontWeight={600}
-            >
-              Signup
-            </Typography>
-            <Input type="text" name="name" label="Name" />
-            <Input type="email" name="email" label="Email" />
-            <Input type="Password" name="password" label="Password" />
-            <Button
-              type="submit"
-              sx={{
-                px: 2,
-                py: 1.5,
-                mt: 2,
-                width: "400px",
-                borderRadius: 2,
-                bgcolor: "#00fffc",
-                fontWeight: "bolder",
-                ":hover": {
-                  bgcolor: "white",
-                  color: "black",
-                },
-              }}
-              endIcon={<IoIosLogIn />}
-            >
-              Signup
+      <div className="space"></div>
+      <Box className="signup-form">
+        <form onSubmit={handleSubmit}>
+          <Box className="form-box">
+            <Typography className="heading">Signup</Typography>
+            <Input type="text" name="name" label="Name" className="input-box" />
+            <br />
+            <Input
+              type="email"
+              name="email"
+              label="Email"
+              className="input-box"
+            />
+            <br />
+            <Input
+              type="Password"
+              name="password"
+              label="Password"
+              className="input-box"
+            />
+            <br />
+            <Button type="submit" endIcon={<IoIosLogIn />} className="btn">
+              SignUp
             </Button>
           </Box>
         </form>

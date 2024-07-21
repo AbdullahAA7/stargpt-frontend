@@ -2,6 +2,7 @@ import { Box, Avatar, Typography } from "@mui/material";
 import { useAuth } from "../../context/AuthContext";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coldarkDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "../../styles/ChatItem.css";
 
 function getCodeFromString(message) {
   if (message.includes("```")) {
@@ -34,35 +35,33 @@ const ChatItem = ({ content, role }) => {
   return role === "model" ? (
     <Box
       sx={{
-        display: "flex",
-        padding: 2,
         bgcolor: "#004d5612",
-        my: 1,
-        gap: 2,
       }}
+      className="ChatItem"
     >
-      <Avatar sx={{ ml: "0" }}>
+      <Avatar className="avtar">
         <img src="openai.png" alt="OPEN_AI" width={"30px"} />
       </Avatar>
-      <Box>
+      <Box className="msg">
         {!messageBlock && (
-          <Typography sx={{ color: "white", fontSize: "1rem" }}>
+          <Typography className="msg-text" sx={{ color: "white" }}>
             {content}
           </Typography>
         )}
 
         {messageBlock &&
           messageBlock.length &&
-          messageBlock.map((block) =>
+          messageBlock.map((block, index) =>
             isCodeBlock(block) ? (
               <SyntaxHighlighter
+                key={index}
                 style={coldarkDark}
                 language={block.split(" ")[0]}
               >
                 {block}
               </SyntaxHighlighter>
             ) : (
-              <Typography sx={{ color: "white", fontSize: "1.4rem" }}>
+              <Typography key={index} sx={{ color: "white" }}>
                 {block}
               </Typography>
             )
@@ -72,35 +71,33 @@ const ChatItem = ({ content, role }) => {
   ) : (
     <Box
       sx={{
-        display: "flex",
-        padding: 2,
         bgcolor: "#004d56",
-        gap: 2,
-        my: 2,
       }}
+      className="ChatItem"
     >
-      <Avatar sx={{ ml: 0, bgcolor: "black", color: "white" }}>
+      <Avatar sx={{ bgcolor: "black" }} className="avtar">
         {auth?.user?.name[0]}
       </Avatar>
-      <Box>
+      <Box className="msg">
         {!messageBlock && (
-          <Typography sx={{ color: "white", fontSize: "1.4rem" }}>
+          <Typography className="msg-text" sx={{ color: "white" }}>
             {content}
           </Typography>
         )}
 
         {messageBlock &&
           messageBlock.length &&
-          messageBlock.map((block) =>
+          messageBlock.map((block, index) =>
             isCodeBlock(block) ? (
               <SyntaxHighlighter
+                key={index}
                 style={coldarkDark}
                 language={block.split(" ")[0]}
               >
                 {block}
               </SyntaxHighlighter>
             ) : (
-              <Typography sx={{ color: "white", fontSize: "1rem" }}>
+              <Typography key={index} sx={{ color: "white" }}>
                 {block}
               </Typography>
             )

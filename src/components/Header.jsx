@@ -2,24 +2,19 @@ import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./shared/Logo";
 import { useAuth } from "../context/AuthContext";
 import NavLink from "./shared/NavLink";
+import "../styles/Header.css";
 const Header = () => {
   const auth = useAuth();
 
   return (
-    <AppBar
-      sx={{ bgcolor: "transparent", position: "static", boxShadow: "none" }}
-    >
-      <Toolbar sx={{ display: "flex" }}>
-        <Logo />
-        <div>
+    <AppBar className="Header">
+      <Toolbar className="navbar">
+        <Logo className="logo" />
+        <div className="space"></div>
+        <div className="btns">
           {auth?.isLoggedIn && auth?.user ? (
             <>
-              <NavLink
-                bg="#00fffc"
-                to="/chat"
-                text="Go to chat"
-                textColor="black"
-              />
+              <NavLink bg="#00fffc" to="/chat" text="Chats" textColor="black" />
 
               <NavLink
                 bg="#51538f"
